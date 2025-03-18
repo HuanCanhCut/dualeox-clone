@@ -5,421 +5,118 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HomeFoody - Thực phẩm sạch cho mọi nhà</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="grid.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: arial;
-        }
-
-        a {
-            text-decoration: none;
-            color: currentColor;
-        }
-
-        #header {
-            width: 100%;
-            height: 268px;
-            background-color: #80bb35;
-        }
-
-        .top-bar {
-            width: 100%;
-            height: 48px;
-            padding: 0 12.5%;
-            background-color: #80bb35;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-        }
-
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .auth-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .auth-buttons span {
-            text-align: right;
-        }
-
-        .main-header {
-            width: 100%;
-            height: 172px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 12.5%;
-        }
-
-        .header-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .header-item {
-            flex: 1;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .menu {
-            width: 100%;
-            height: 48px;
-            background-color: #80bb35;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-logo {
-            max-width: 100%;
-            object-fit: cover;
-        }
-
-        .policy-title,
-        .support-title,
-        .time-title {
-            font-weight: 600;
-        }
-
-        .policy-description,
-        .support-description,
-        .time-description {
-            font-size: 14px;
-        }
-
-        .font-bold {
-            font-weight: 600;
-        }
-
-        .policy-content,
-        .support-content,
-        .time-content {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .header-item-card {
-            display: block;
-            background-color: #fe9705;
-            padding: 8px 16px;
-            color: white;
-            border-radius: 12px;
-            display: flex;
-            gap: 8px;
-        }
-
-        .header-item-cart {
-            justify-content: flex-end;
-        }
-
-        .menu-container {
-            width: 75%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .menu__item-left {
-            height: 100%;
-        }
-
-        .menu__item-left ul li:first-child {
-            background-color: #fe9705;
-        }
-
-        .menu__item-left ul {
-            display: flex;
-            color: white;
-            height: 100%;
-            list-style: none;
-        }
-
-        .menu__item-left ul li {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            height: 100%;
-            padding: 0 12px;
-        }
-
-        .menu__item-left ul li:hover {
-            background-color: #fe9705;
-        }
-
-        .menu__item-right {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .menu__item-right input {
-            padding: 8px 16px;
-            width: 252px;
-            border-radius: 16px;
-            border: none;
-            outline: none;
-            line-height: none;
-        }
-
-        .menu__item-right .menu-search {
-            position: absolute;
-            right: 16px;
-            font-size: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        #container {
-            width: 75%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            padding: 32px 0;
-        }
-
-        .container-slider {
-            display: flex;
-            gap: 24px;
-        }
-
-        .container-slider-sidebar {
-            border-radius: 10px;
-            width: 292px;
-            border: 1px solid rgba(163, 163, 163, 0.281);
-            border-top: none;
-        }
-
-        .container-slider-sidebar-title {
-            width: 100%;
-            padding: 8px 20px;
-            border-radius: 10px;
-            text-align: left;
-            border: none;
-            background-color: #80bb35;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .container-slider-sidebar ul {
-            list-style: none;
-            padding: 0 16px;
-            font-size: 14px;
-        }
-
-        .container-slider-sidebar ul li a {
-            padding: 12px 25px;
-            padding-left: 0;
-            border-bottom: 1px solid rgba(163, 163, 163, 0.281);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-        }
-
-        .container-slider-sidebar ul li:hover {
-            color: #80bb35;
-        }
-
-        .container-slider-sidebar ul li i {
-            font-size: 14px;
-            color: #333;
-        }
-
-        .container-slider-sidebar ul li:last-child a {
-            border-bottom: none;
-        }
-
-        .container-slider-content {
-            width: 100%;
-            flex: 1;
-        }
-
-        .container-slider-content img {
-            width: 100%;
-            height: 100%;
-            aspect-ratio: 20/9;
-            border-radius: 18px;
-            object-fit: cover;
-        }
-
-        .banner-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 32px;
-        }
-
-        .banner-container img {
-            width: 100%;
-            height: 100%;
-            border-radius: 18px;
-        }
-
-        .container-category {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .container-category-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-top: 20px;
-        }
-
-        .container-category-item {
-            flex: 1;
-            padding: 16px 0px;
-            border: 1px solid rgba(163, 163, 163, 0.281);
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .container-category-item p {
-            color: #fe9705;
-            margin-top: 12px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .container-category-item-price-old {
-            text-decoration: line-through;
-            color: gray;
-            font-size: 14px;
-        }
-
-        .container-category-title {
-            width: fit-content;
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: none;
-            background-color: #80bb35;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        #footer {
-            width: 100%;
-            background-color: #65932a;
-            padding: 30px 0;
-            color: white;
-        }
-
-        .footer_container {
-            padding: 0 12.5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            gap: 24px;
-        }
-
-        .footer_container .footer_item ul {
-            margin-top: 16px;
-            list-style: none;
-            line-height: 2;
-            font-weight: 500;
-        }
-    </style>
     <body>
-        <div id="header">
-            <div class="top-bar">
-                <div class="contact-info">
-                    <span>
-                        Hotline:
-                        <b>0912029920</b>
-                    </span>
-                    <span> Địa chỉ: <b>Số 1 Đỗ Thế Diên, Nhân Hòa, Mỹ Hào, Hưng Yên</b> </span>
-                </div>
-                <div class="auth-buttons">
-                    <span>Đăng nhập</span>
-                    <span>Đăng ký</span>
-                </div>
-            </div>
-            <div class="main-header">
-                <div class="header-content">
-                    <div class="header-item">
-                        <img src="./public/media/logo.jpg" alt="logo" class="header-logo" />
-                    </div>
-                    <div class="header-item">
-                        <img src="./public/media/policy.jpg" alt="policy" class="policy-logo" />
-                        <div class="policy-content">
-                            <p class="policy-title">Miễn phí vận chuyển</p>
-                            <span class="policy-description">Bán kính 100km</span>
+        <header id="header">
+            <div class="header_info">
+                <div class="grid wide">
+                    <div class="header_info-contact">
+                        <div class="row">
+                            <div class="col l-8 m-8 c-12">
+                                <span>Hotline: <b>0912.000.000</b></span>
+                                <span class="header_info-address"
+                                    >Địa chỉ: 268 Cầu Giấy, Quận Cầu Giấy, Hà Nội, Vietnam</span
+                                >
+                            </div>
+                            <div class="col l-4 m-4 c-0">
+                                <div class="header_info-auth">
+                                    <span
+                                        ><b><a href="login.html">Đăng nhập</a></b> hoặc
+                                        <b><a href="register.html"> Đăng ký </a></b></span
+                                    >
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="header-item">
-                        <img src="./public/media/support.jpg" alt="support" class="support-logo" />
-                        <div class="support-content">
-                            <p class="support-title">Hỗ trợ 24/7</p>
-                            <span class="support-description">Hotline: <span class="font-bold">19001009</span></span>
-                        </div>
-                    </div>
-                    <div class="header-item">
-                        <img src="./public/media/time.jpg" alt="time" class="time-logo" />
-                        <div class="time-content">
-                            <p class="time-title">Giờ làm việc</p>
-                            <span class="time-description">T2 - T7 Giờ hành chính</span>
-                        </div>
-                    </div>
-                    <div class="header-item header-item-cart">
-                        <a class="header-item-card">
-                            <i class="fa-solid fa-shopping-bag"></i>
-                            Giỏ hàng
-                            <span>(1)</span>
-                        </a>
                     </div>
                 </div>
             </div>
+            <div class="grid wide">
+                <div class="header-logo-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                    <img src="https://theme.hstatic.net/1000324420/1000664192/14/logo.png?v=52" alt="" />
+                    <i class="fa-solid fa-cart-shopping"> </i>
+                </div>
+                <div class="row">
+                    <div class="col l-2-4 m-0 c-0 logo">
+                        <img src="https://theme.hstatic.net/1000324420/1000664192/14/logo.png?v=52" alt="" />
+                    </div>
+                    <div class="col l-2-4 m-4 c-0">
+                        <div class="header_item-policy">
+                            <img src="https://theme.hstatic.net/1000324420/1000664192/14/policy1.png?v=52" alt="" />
+                            <div class="header_item-policy-item">
+                                <b>Miễn phí vận chuyển</b>
+                                <p>Bán kính 100km</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-0">
+                        <div class="header_item-policy">
+                            <img src="https://theme.hstatic.net/1000324420/1000664192/14/policy2.png?v=52" alt="" />
+                            <div class="header_item-policy-item">
+                                <b>Hỗ trợ 24/7</b>
+                                <p>Hotline: <b>0912.000.000</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-0">
+                        <div class="header_item-policy">
+                            <img src="https://theme.hstatic.net/1000324420/1000664192/14/policy3.png?v=52" alt="" />
+                            <div class="header_item-policy-item">
+                                <b>Giờ làm việc</b>
+                                <p>T2 - T7 Giờ hành chính</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-2-4 m-0 c-0">
+                        <div class="header_item-policy">
+                            <button class="shopping-cart-btn l-8 m-0 c-0">
+                                <i class="fa-solid fa-cart-shopping"></i><span>Giỏ hàng</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="menu">
-                <div class="menu-container">
-                    <div class="menu__item-left">
-                        <ul>
-                            <li>
-                                Trang chủ
-                                <i class="fa-solid fa-chevron-right" style="font-size: 12px; margin-left: 4px"></i>
-                            </li>
-                            <li>
-                                Sản phẩm
-                                <i class="fa-solid fa-chevron-right" style="font-size: 12px; margin-left: 4px"></i>
-                            </li>
-                            <li>Tin tức</li>
-                            <li>Giới thiệu</li>
-                            <li>Liên hệ</li>
-                            <li>Demo tùy chọn</li>
-                        </ul>
-                    </div>
-                    <div class="menu__item-right">
-                        <input type="text" placeholder="Tìm sản phẩm" />
-                        <i class="fa-solid fa-magnifying-glass menu-search"></i>
+                <div class="grid wide">
+                    <div class="row">
+                        <div class="col l-8 m-8 c-0">
+                            <div class="menu__item-left">
+                                <ul>
+                                    <li>
+                                        Trang chủ
+                                        <i
+                                            class="fa-solid fa-chevron-right"
+                                            style="font-size: 12px; margin-left: 4px"
+                                        ></i>
+                                    </li>
+                                    <li>
+                                        Sản phẩm
+                                        <i
+                                            class="fa-solid fa-chevron-right"
+                                            style="font-size: 12px; margin-left: 4px"
+                                        ></i>
+                                    </li>
+                                    <li>Tin tức</li>
+                                    <li>Giới thiệu</li>
+                                    <li>Liên hệ</li>
+                                    <li>Demo tùy chọn</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col l-4 m-4 c-0">
+                            <div class="menu__item-right">
+                                <input type="text" placeholder="Tìm sản phẩm" />
+                                <i class="fa-solid fa-magnifying-glass menu-search"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <main id="container">
+        </header>
+        <div class="grid wide">
             <div class="container-slider">
                 <aside class="container-slider-sidebar">
                     <h1 class="container-slider-sidebar-title">DANH MỤC</h1>
@@ -488,17 +185,19 @@
                     />
                 </div>
             </div>
+        </div>
 
-            <div class="banner-container">
+        <div class="grid wide">
+            <div class="banner">
                 <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner1.jpg?v=52" alt="" />
                 <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner2.jpg?v=52" alt="" />
-                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner3.jpg?v=52s" alt="" />
+                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner3.jpg?v=52" alt="" />
             </div>
 
-            <div class="container-category">
-                <div>
-                    <h1 class="container-category-title">Trái cây mỗi ngày</h1>
-                    <div class="container-category-wrapper">
+            <div style="margin-top: 40px">
+                <h1 class="container-category-title">Trái cây mỗi ngày</h1>
+                <div class="row">
+                    <div class="col l-3 m-6 c-12">
                         <div class="container-category-item">
                             <img
                                 src="https://product.hstatic.net/1000324420/product/upload_963fbe98fc324f47b37e38a3481c22e1_medium.jpg"
@@ -506,44 +205,9 @@
                             />
                             <a href="">Chanh dây úc đỏ </a>
                             <p>400.000đ <span class="container-category-item-price-old">150.000đ</span></p>
-                        </div>
-                        <div class="container-category-item">
-                            <img
-                                src="https://product.hstatic.net/1000324420/product/upload_247e10d109a54ac9ad10d23d0736d0b4_medium.jpg"
-                                alt=""
-                            />
-                            <a href="">Dưa leo</a>
-                            <p>65.000đ</p>
-                        </div>
-                        <div class="container-category-item">
-                            <img
-                                src="https://product.hstatic.net/1000324420/product/upload_2929d6cbc6a94b8f8b6cd1b158c426ad_medium.jpg"
-                                alt=""
-                            />
-                            <a href="">Hành tây</a>
-                            <p>50.000đ</p>
-                        </div>
-                        <div class="container-category-item">
-                            <img
-                                src="https://product.hstatic.net/1000324420/product/upload_d07ae86f129b45c7b9828bc048ca9e00_medium.jpg"
-                                alt=""
-                            />
-                            <a href="">Hồng đỏ</a>
-                            <p>150.000đ</p>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <h1 class="container-category-title">Rau tươi mới</h1>
-                    <div class="container-category-wrapper">
-                        <div class="container-category-item">
-                            <img
-                                src="https://product.hstatic.net/1000324420/product/upload_963fbe98fc324f47b37e38a3481c22e1_medium.jpg"
-                                alt=""
-                            />
-                            <a href="">Chanh dây úc đỏ </a>
-                            <p>400.000đ <span class="container-category-item-price-old">150.000đ</span></p>
-                        </div>
+                    <div class="col l-3 m-6 c-12">
                         <div class="container-category-item">
                             <img
                                 src="https://product.hstatic.net/1000324420/product/upload_247e10d109a54ac9ad10d23d0736d0b4_medium.jpg"
@@ -552,6 +216,8 @@
                             <a href="">Dưa leo</a>
                             <p>65.000đ</p>
                         </div>
+                    </div>
+                    <div class="col l-3 m-6 c-12">
                         <div class="container-category-item">
                             <img
                                 src="https://product.hstatic.net/1000324420/product/upload_2929d6cbc6a94b8f8b6cd1b158c426ad_medium.jpg"
@@ -560,6 +226,9 @@
                             <a href="">Hành tây</a>
                             <p>50.000đ</p>
                         </div>
+                    </div>
+
+                    <div class="col l-3 m-6 c-12">
                         <div class="container-category-item">
                             <img
                                 src="https://product.hstatic.net/1000324420/product/upload_d07ae86f129b45c7b9828bc048ca9e00_medium.jpg"
@@ -571,52 +240,109 @@
                     </div>
                 </div>
             </div>
-            <div class="banner-container">
-                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner1.jpg?v=52" alt="" />
-                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner2.jpg?v=52" alt="" />
-                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner3.jpg?v=52s" alt="" />
-            </div>
-            <div>
-                <h1 class="container-category-title">Hải sản tươi sống</h1>
-                <div class="container-category-wrapper">
-                    <div class="container-category-item">
-                        <img
-                            src="https://product.hstatic.net/1000324420/product/upload_963fbe98fc324f47b37e38a3481c22e1_medium.jpg"
-                            alt=""
-                        />
-                        <a href="">Chanh dây úc đỏ </a>
-                        <p>400.000đ <span class="container-category-item-price-old">150.000đ</span></p>
+            <div style="margin-top: 40px">
+                <h1 class="container-category-title">Rau tươi mỗi ngày</h1>
+                <div class="row">
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_963fbe98fc324f47b37e38a3481c22e1_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Chanh dây úc đỏ </a>
+                            <p>400.000đ <span class="container-category-item-price-old">150.000đ</span></p>
+                        </div>
                     </div>
-                    <div class="container-category-item">
-                        <img
-                            src="https://product.hstatic.net/1000324420/product/upload_247e10d109a54ac9ad10d23d0736d0b4_medium.jpg"
-                            alt=""
-                        />
-                        <a href="">Dưa leo</a>
-                        <p>65.000đ</p>
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_247e10d109a54ac9ad10d23d0736d0b4_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Dưa leo</a>
+                            <p>65.000đ</p>
+                        </div>
                     </div>
-                    <div class="container-category-item">
-                        <img
-                            src="https://product.hstatic.net/1000324420/product/upload_2929d6cbc6a94b8f8b6cd1b158c426ad_medium.jpg"
-                            alt=""
-                        />
-                        <a href="">Hành tây</a>
-                        <p>50.000đ</p>
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_2929d6cbc6a94b8f8b6cd1b158c426ad_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Hành tây</a>
+                            <p>50.000đ</p>
+                        </div>
                     </div>
-                    <div class="container-category-item">
-                        <img
-                            src="https://product.hstatic.net/1000324420/product/upload_d07ae86f129b45c7b9828bc048ca9e00_medium.jpg"
-                            alt=""
-                        />
-                        <a href="">Hồng đỏ</a>
-                        <p>150.000đ</p>
+
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_d07ae86f129b45c7b9828bc048ca9e00_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Hồng đỏ</a>
+                            <p>150.000đ</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+
+            <div class="banner">
+                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner1.jpg?v=52" alt="" />
+                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner2.jpg?v=52" alt="" />
+                <img src="https://theme.hstatic.net/1000324420/1000664192/14/banner3.jpg?v=52" alt="" />
+            </div>
+
+            <div style="margin-top: 40px">
+                <h1 class="container-category-title">Thịt tươi mỗi ngày</h1>
+                <div class="row">
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_963fbe98fc324f47b37e38a3481c22e1_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Chanh dây úc đỏ </a>
+                            <p>400.000đ <span class="container-category-item-price-old">150.000đ</span></p>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_247e10d109a54ac9ad10d23d0736d0b4_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Dưa leo</a>
+                            <p>65.000đ</p>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_2929d6cbc6a94b8f8b6cd1b158c426ad_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Hành tây</a>
+                            <p>50.000đ</p>
+                        </div>
+                    </div>
+
+                    <div class="col l-3 m-6 c-12">
+                        <div class="container-category-item">
+                            <img
+                                src="https://product.hstatic.net/1000324420/product/upload_d07ae86f129b45c7b9828bc048ca9e00_medium.jpg"
+                                alt=""
+                            />
+                            <a href="">Hồng đỏ</a>
+                            <p>150.000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="footer">
             <div class="footer_container">
-                <div class="footer_item">
+                <div class="footer_item footer_item-support">
                     <h2>HỖ TRỢ KHÁCH HÀNG</h2>
                     <ul>
                         <li><a href="#">Chính sách đổi chuyển</a></li>
@@ -628,7 +354,7 @@
                     </ul>
                 </div>
 
-                <div class="footer_item">
+                <div class="footer_item footer_item-category">
                     <h2>DANH MỤC</h2>
                     <ul>
                         <li><a href="#">Trang chủ</a></li>
