@@ -1,33 +1,23 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
-    const mobileMenu = document.getElementById('mobile-menu')
+const nextBtn = document.querySelector('.container-slider-content-btn.right')
+const prevBtn = document.querySelector('.container-slider-content-btn.left')
+const slider = document.querySelector('.container-slider-content-img')
 
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function () {
-            mobileMenu.classList.toggle('active')
-        })
+const images = ['./public/media/slide_1.jpg', './public/media/slide_2.jpg', './public/media/slide_3.jpg']
+
+let currentIndex = 0
+
+nextBtn.addEventListener('click', () => {
+    currentIndex++
+    if (currentIndex >= images.length) {
+        currentIndex = 0
     }
+    slider.src = images[currentIndex]
+})
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function (event) {
-        if (!event.target.closest('.menu__item-left') && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active')
-        }
-    })
-
-    // Responsive sidebar categories
-    const sidebarItems = document.querySelectorAll('.container-slider-sidebar-item')
-
-    sidebarItems.forEach((item) => {
-        const link = item.querySelector('a')
-        const content = item.querySelector('.container-slider-sidebar-item-content')
-
-        if (link && content) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault()
-                content.classList.toggle('active')
-            })
-        }
-    })
+prevBtn.addEventListener('click', () => {
+    currentIndex--
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1
+    }
+    slider.src = images[currentIndex]
 })

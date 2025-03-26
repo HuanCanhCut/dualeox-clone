@@ -212,6 +212,31 @@ input {
 .container-slider-content {
     width: 100%;
     flex: 1;
+    position: relative;
+}
+
+.container-slider-content-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container-slider-content-btn.left {
+    left: -20px;
+}
+
+.container-slider-content-btn.right {
+    right: -20px;
 }
 
 .container-slider-content img {
